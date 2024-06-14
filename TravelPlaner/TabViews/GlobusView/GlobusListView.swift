@@ -53,7 +53,7 @@ struct Globus: View {
                 .padding(.top, 35)
             }
             .sheet(isPresented: $showAddArea){
-                GlobusDetail(isPresented: $showAddArea)
+                DestinationDetail(isPresented: $showAddArea)
                     
             }
         }

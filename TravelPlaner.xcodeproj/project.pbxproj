@@ -14,12 +14,13 @@
 		BAAC36A82C1C607B0067388A /* TravelPlanerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36A72C1C607B0067388A /* TravelPlanerTests.swift */; };
 		BAAC36B22C1C607B0067388A /* TravelPlanerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36B12C1C607B0067388A /* TravelPlanerUITests.swift */; };
 		BAAC36B42C1C607B0067388A /* TravelPlanerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36B32C1C607B0067388A /* TravelPlanerUITestsLaunchTests.swift */; };
-		BAAC36C42C1C70960067388A /* Globus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C32C1C70960067388A /* Globus.swift */; };
+		BAAC36C42C1C70960067388A /* GlobusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C32C1C70960067388A /* GlobusListView.swift */; };
 		BAAC36C72C1C71540067388A /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C62C1C71540067388A /* Travel.swift */; };
-		BAAC36CA2C1C79950067388A /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C92C1C79950067388A /* Area.swift */; };
+		BAAC36CA2C1C79950067388A /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C92C1C79950067388A /* DestinationView.swift */; };
 		BAAC36CD2C1C7CB30067388A /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36CC2C1C7CB30067388A /* PersistentStore.swift */; };
 		BAAC36D02C1C80DA0067388A /* TravelData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36CE2C1C80DA0067388A /* TravelData.xcdatamodeld */; };
-		BAAC36D32C1CB8820067388A /* GlobusDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36D22C1CB8820067388A /* GlobusDetail.swift */; };
+		BAAC36D32C1CB8820067388A /* DestinationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36D22C1CB8820067388A /* DestinationDetail.swift */; };
+		BAAC36D52C1CE7B20067388A /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36D42C1CE7B20067388A /* DestinationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +51,13 @@
 		BAAC36AD2C1C607B0067388A /* TravelPlanerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelPlanerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAC36B12C1C607B0067388A /* TravelPlanerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlanerUITests.swift; sourceTree = "<group>"; };
 		BAAC36B32C1C607B0067388A /* TravelPlanerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlanerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BAAC36C32C1C70960067388A /* Globus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globus.swift; sourceTree = "<group>"; };
+		BAAC36C32C1C70960067388A /* GlobusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobusListView.swift; sourceTree = "<group>"; };
 		BAAC36C62C1C71540067388A /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
-		BAAC36C92C1C79950067388A /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
+		BAAC36C92C1C79950067388A /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 		BAAC36CC2C1C7CB30067388A /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		BAAC36CF2C1C80DA0067388A /* TravelData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelData.xcdatamodel; sourceTree = "<group>"; };
-		BAAC36D22C1CB8820067388A /* GlobusDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobusDetail.swift; sourceTree = "<group>"; };
+		BAAC36D22C1CB8820067388A /* DestinationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetail.swift; sourceTree = "<group>"; };
+		BAAC36D42C1CE7B20067388A /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,9 +155,10 @@
 		BAAC36C52C1C709E0067388A /* GlobusView */ = {
 			isa = PBXGroup;
 			children = (
+				BAAC36C32C1C70960067388A /* GlobusListView.swift */,
+				BAAC36C92C1C79950067388A /* DestinationView.swift */,
 				BAAC36D12C1CB86E0067388A /* Detail */,
-				BAAC36C32C1C70960067388A /* Globus.swift */,
-				BAAC36C92C1C79950067388A /* Area.swift */,
+				BAAC36D42C1CE7B20067388A /* DestinationViewModel.swift */,
 			);
 			path = GlobusView;
 			sourceTree = "<group>";
@@ -180,7 +183,7 @@
 		BAAC36D12C1CB86E0067388A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				BAAC36D22C1CB8820067388A /* GlobusDetail.swift */,
+				BAAC36D22C1CB8820067388A /* DestinationDetail.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -316,10 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAAC36CD2C1C7CB30067388A /* PersistentStore.swift in Sources */,
-				BAAC36CA2C1C79950067388A /* Area.swift in Sources */,
-				BAAC36C42C1C70960067388A /* Globus.swift in Sources */,
+				BAAC36D52C1CE7B20067388A /* DestinationViewModel.swift in Sources */,
+				BAAC36CA2C1C79950067388A /* DestinationView.swift in Sources */,
+				BAAC36C42C1C70960067388A /* GlobusListView.swift in Sources */,
 				BAAC36C72C1C71540067388A /* Travel.swift in Sources */,
-				BAAC36D32C1CB8820067388A /* GlobusDetail.swift in Sources */,
+				BAAC36D32C1CB8820067388A /* DestinationDetail.swift in Sources */,
 				BAAC36992C1C607A0067388A /* ContentView.swift in Sources */,
 				BAAC36D02C1C80DA0067388A /* TravelData.xcdatamodeld in Sources */,
 				BAAC36972C1C607A0067388A /* TravelPlanerApp.swift in Sources */,
