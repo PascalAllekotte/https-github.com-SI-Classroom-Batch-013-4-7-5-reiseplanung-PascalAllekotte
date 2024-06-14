@@ -19,6 +19,7 @@
 		BAAC36CA2C1C79950067388A /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36C92C1C79950067388A /* Area.swift */; };
 		BAAC36CD2C1C7CB30067388A /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36CC2C1C7CB30067388A /* PersistentStore.swift */; };
 		BAAC36D02C1C80DA0067388A /* TravelData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36CE2C1C80DA0067388A /* TravelData.xcdatamodeld */; };
+		BAAC36D32C1CB8820067388A /* GlobusDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC36D22C1CB8820067388A /* GlobusDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BAAC36C92C1C79950067388A /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		BAAC36CC2C1C7CB30067388A /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		BAAC36CF2C1C80DA0067388A /* TravelData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelData.xcdatamodel; sourceTree = "<group>"; };
+		BAAC36D22C1CB8820067388A /* GlobusDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobusDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		BAAC36C52C1C709E0067388A /* GlobusView */ = {
 			isa = PBXGroup;
 			children = (
+				BAAC36D12C1CB86E0067388A /* Detail */,
 				BAAC36C32C1C70960067388A /* Globus.swift */,
 				BAAC36C92C1C79950067388A /* Area.swift */,
 			);
@@ -172,6 +175,14 @@
 				BAAC36CE2C1C80DA0067388A /* TravelData.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BAAC36D12C1CB86E0067388A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BAAC36D22C1CB8820067388A /* GlobusDetail.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				BAAC36CA2C1C79950067388A /* Area.swift in Sources */,
 				BAAC36C42C1C70960067388A /* Globus.swift in Sources */,
 				BAAC36C72C1C71540067388A /* Travel.swift in Sources */,
+				BAAC36D32C1CB8820067388A /* GlobusDetail.swift in Sources */,
 				BAAC36992C1C607A0067388A /* ContentView.swift in Sources */,
 				BAAC36D02C1C80DA0067388A /* TravelData.xcdatamodeld in Sources */,
 				BAAC36972C1C607A0067388A /* TravelPlanerApp.swift in Sources */,

@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct GlobusDetail: View {
+    
+    // MARK: - Variables
+    
+    @Binding var isPresented: Bool
+    
+    //-------------------
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Hallo")
+            
+        }
     }
 }
 
 #Preview {
-    GlobusDetail()
+    GlobusDetail(isPresented: .constant(false))
 }
