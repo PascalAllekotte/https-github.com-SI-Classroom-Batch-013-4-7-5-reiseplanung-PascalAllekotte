@@ -9,54 +9,54 @@ import SwiftUI
 
 struct Globus: View {
     
-    // MARK: - Functions
-
+    // MARK: - Variables
+    
     @State private var showAddArea = false
-
+    
+    @StateObject private var viewModel = DestinationViewModel()
+    
     //--------------------
     
     
     var body: some View {
+        
         NavigationStack {
-            ZStack(alignment: .top) {
-                Image("GlobusC")
-                    .edgesIgnoringSafeArea(.all)
-                    .shadow(radius: 1)
-                
+            ScrollView{
                 VStack {
-                    HStack {
-                        Text("Globus!")
-                            .font(.largeTitle)
-                            .foregroundColor(.black.opacity(0.75))
-                            .padding(.leading, 16)
-                            .bold()
-                        Spacer()
-                    }
-                    .padding(.top, -25)
+                    
                     
                     Spacer()
                     
-                    NavigationLink(destination: Travel()) {
-                        Text("Hello, World!")
-                            .font(.largeTitle)
-                            .foregroundColor(.black.opacity(0.75))
-                            .padding()
+                    ForEach(viewModel.destinations.reversed()){ destination in
+                        DestinationItem(destination: destination, viewModel: viewModel)
                     }
-                    .padding(.bottom, 40)
+                    
+                    
+                    .padding()
                 }
             }
+            .navigationTitle("Globus")
             .toolbar {
                 Button(action: createArea) {
                     Image(systemName: "plus.circle.fill")
                         .foregroundStyle(.yellow.opacity(0.7))
                 }
-                .padding(.top, 35)
-            }
-            .sheet(isPresented: $showAddArea){
-                DestinationDetail(isPresented: $showAddArea)
-                    
             }
         }
+        
+        .sheet(isPresented: $showAddArea){
+            DestinationDetail(isPresented: $showAddArea)
+                .onDisappear {
+                                    viewModel.fetchDestinations()
+                                }
+            
+        }
+    
+        
+        .onAppear{
+            viewModel.fetchDestinations()
+        }
+        
     }
     
     private func createArea() {

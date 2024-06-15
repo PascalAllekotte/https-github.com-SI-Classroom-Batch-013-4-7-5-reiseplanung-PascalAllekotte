@@ -7,20 +7,19 @@
 
 import SwiftUI
 
-struct Area: View {
+struct DestinationItem: View {
     
     // MARK: - Variables
-    
     @ObservedObject var destination: Destination
-    
+    @ObservedObject var viewModel: DestinationViewModel
     
     //-------------------
     
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
-            HStack{
-                VStack{
+            HStack {
+                VStack {
                     Text(destination.city ?? "Mülheim")
                         .font(.headline)
                         .foregroundStyle(.white)
@@ -32,59 +31,48 @@ struct Area: View {
                 .background(.gray.opacity(0.7))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 
-                
                 Spacer()
-                Button(action: delete){
+                Button(action: delete) {
                     Image(systemName: "trash")
                         .scaledToFill()
-                        .frame(width: 14, height: 4)
+                        .frame(width: 14, height: 14)
                         .foregroundColor(.yellow.opacity(0.75))
                         .padding()
                         .background(Circle().fill(Color.white))
-                    
-                    
                 }
-                
             }
             .padding(5)
-            
-            
-            
         }
-        .frame(maxHeight: 150)
+        .frame(height: 150)
         .padding(.horizontal, 10)
         .background(
-            Image(uiImage: destinationImage())
-                .resizable()
-                .aspectRatio(contentMode: .fill))
-            
+            Group {
+                if let imageData = destination.image, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } else {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+            }
+        )
         .clipShape(RoundedRectangle(cornerRadius: 25))
-        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        .shadow(radius: 10)
     }
     
-    
-
-
-// MARK: - Functions
-
-func delete(){
-    // Hier muss noch später das ViewModel implementiert werden
-}
-
-// Funktion zum Laden des Bildes
-func destinationImage() -> UIImage {
-    if let imageData = destination.image, let uiImage = UIImage(data: imageData) {
-        return uiImage
-    } else {
-        return UIImage(named: "Mülheim") ?? UIImage()
+    // MARK: - Functions
+    func delete() {
+        viewModel.deleteDestinations(destination)
     }
 }
-}
-
-//-------------------
 
 
+    //--------------------
 
 #Preview {
-    Area(destination: .init(context: PersistentStore.shared.context))
+    DestinationItem(destination: .init(context: PersistentStore.shared.context), viewModel: DestinationViewModel())
 }

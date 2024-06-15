@@ -7,57 +7,68 @@
 
 import Foundation
 import CoreData
+import PhotosUI
+import SwiftUI
 
-class DestinationViewModel : ObservableObject {
-    
-    
-    init(){
+class DestinationViewModel: ObservableObject {
+
+    init() {
         fetchDestinations()
     }
-    
-    
+
     // MARK: - Variables
-    
-    @Published var destiantions: [Destination] = []
-    
+    @Published var destinations: [Destination] = []
+
     let container = PersistentStore.shared
-    
-    
+
     //-------------------
-    
+
     // MARK: - Functions
-    
+
     // C - RUD
-    func saveDestination(_ city: String, country: String, image: Data){ // Eventuell Data falsch
-        let destination = Destination(context: container.context)
+    func saveDestination(_ city: String, country: String, photoPickerItem: PhotosPickerItem?) {
+        let destination = Destination(context: self.container.context)
         destination.id = UUID()
         destination.city = city
         destination.country = country
-        destination.image = image
-        
-        container.save()
-        fetchDestinations()
+        photoPickerItem?.loadTransferable(type: Data.self) { result in
+            if let data = try? result.get() {
+                destination.image = data
+            }
+            self.container.save()
+            self.fetchDestinations()
+        }
     }
-    
+
     // C -R- UD
-    func fetchDestinations(){
+    func fetchDestinations() {
         let request = Destination.fetchRequest()
-        
+
         do {
-            self.destiantions = try PersistentStore.shared.context.fetch(request)
+            self.destinations = try PersistentStore.shared.context.fetch(request)
+            DispatchQueue.main.async {
+                self.objectWillChange.send()
+            }
         } catch let error {
             print("something went wrong while fetching destinations. \(error)")
         }
-        
-        
     }
-    
-    
-    
-    
-    
-    
+
+    // CR -U- D
+    func updateDestinations(_ destination: Destination, city: String) {
+        destination.city = city
+        container.save()
+        fetchDestinations()
+    }
+
+    // CRU -D-
+    func deleteDestinations(_ destination: Destination) {
+        container.context.delete(destination)
+        container.save()
+        fetchDestinations()
+    }
 }
+
 
 
 
